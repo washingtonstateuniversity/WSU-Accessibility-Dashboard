@@ -1,0 +1,20 @@
+#code-display-container {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.result {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: .5em;
+}
+
+.count {
+	flex-basis: 10%;
+}
+
+.code {
+	color: #0366d6;
+	text-decoration: underline;
+	cursor: pointer;
+}
