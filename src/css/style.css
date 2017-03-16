@@ -1,3 +1,14 @@
+body {
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+}
+
+pre,
+code,
+textarea {
+	font-family: Inconsolata, monospace;
+}
+
 .set-display-container {
 	width: 75%;
 	margin: 0 auto;
@@ -19,4 +30,30 @@
 	color: #0366d6;
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+.code-details-result {
+	margin-bottom: 2.4em;
+	width: 100%;
+}
+
+.code-details-message {
+	font-size: 1.2em;
+	line-height: 1.5;
+	max-width: 800px;
+}
+
+.code-details-selector code {
+	font-size: 1.3em;
+}
+
+.code-details-context textarea {
+	width: 100%;
+	border: 0;
+	font-size: 1.2em;
+	height: 80px;
+}
+
+.code-details-url {
+	font-size: 1.2em;
 }
