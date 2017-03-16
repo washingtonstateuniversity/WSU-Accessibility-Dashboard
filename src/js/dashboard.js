@@ -6,7 +6,8 @@
 			"aggs": {
 				"top_codes": {
 					"terms": {
-						"field": type
+						"field": type,
+						"size": 20
 					}
 				}
 			}
