@@ -37,4 +37,36 @@
 	aggregateRequest( "domain" );
 	aggregateRequest( "url" );
 
+	$( document ).ready( function() {
+		$( "#code-display-container" ).on( "click", ".code", function() {
+			var code = $( this ).html();
+			var body = {
+				"size": 2000,
+				"query": {
+					"match": {
+						"code": code
+					}
+				}
+			};
+
+			$( "#code-details-display-container h2" ).html( code );
+			$( "#code-details-display-container .results" ).html( "" );
+
+			$.ajax( {
+				url: "https://elastic.wsu.edu/a11y-scan/record/_search",
+				type: "POST",
+				crossDomain: true,
+				dataType: "json",
+				data: JSON.stringify( body ),
+				success: function( response ) {
+					for ( var i = 0, j = response.hits.hits.length; i < j; i++ ) {
+						console.log( response.hits.hits[ i ]._source.url );
+					}
+				},
+				error: function( jqXHR, textStatus, errorThrown ) {
+					console.log( jqXHR, textStatus, errorThrown );
+				}
+			} );
+		} );
+	} );
 }( jQuery ) );
