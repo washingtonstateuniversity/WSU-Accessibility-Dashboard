@@ -1,5 +1,5 @@
-/* global console */
-( function( $ ) {
+/* global console, _ */
+( function( $, _ ) {
 	var aggregateRequest = function( type ) {
 		var body = {
 			"size": 0,
@@ -34,10 +34,10 @@
 	};
 
 	aggregateRequest( "code" );
-	aggregateRequest( "domain" );
-	aggregateRequest( "url" );
 
 	$( document ).ready( function() {
+		var code_details_template = _.template( $( "#code-details-template" ).html() );
+
 		$( "#code-display-container" ).on( "click", ".code", function() {
 			var code = $( this ).html();
 			var body = {
@@ -60,7 +60,16 @@
 				data: JSON.stringify( body ),
 				success: function( response ) {
 					for ( var i = 0, j = response.hits.hits.length; i < j; i++ ) {
-						console.log( response.hits.hits[ i ]._source.url );
+						var hit = response.hits.hits[ i ]._source;
+
+						$( ".results" ).append( code_details_template( {
+								message: hit.message,
+								selector: hit.selector,
+								context: hit.context,
+								url: hit.url,
+								domain: hit.domain
+						} ) );
+
 					}
 				},
 				error: function( jqXHR, textStatus, errorThrown ) {
@@ -69,4 +78,4 @@
 			} );
 		} );
 	} );
-}( jQuery ) );
+}( jQuery, _ ) );

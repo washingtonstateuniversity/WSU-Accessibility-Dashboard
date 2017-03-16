@@ -9,16 +9,37 @@
 <body>
 	<h1>A11y Dashboard</h1>
 
-	<section id="domain-display-container" class="set-display-container">
+	<!--<section id="domain-display-container" class="set-display-container">
 		<h2>Top Domains</h2>
 	</section>
 
 	<section id="url-display-container" class="set-display-container">
 		<h2>Top URLs</h2>
-	</section>
+	</section>-->
 
 	<section id="code-display-container" class="set-display-container">
 		<h2>Top Codes</h2>
 	</section>
+
+	<section id="code-details-display-container" class="set-display-container">
+		<h2></h2>
+		<div class="results"></div>
+	</section>
+
+	<script type="text/template" id="code-details-template">
+		<div class="code-details-result">
+			<div class="code-details-url">
+				Domain: <a href="<%= url %>"><%= domain %></a></div>
+			<div class="code-details-message">
+				<p><strong>Message:</strong> <%= message %></p></div>
+			<div class="code-details-selector">
+				<strong>Selector:</strong> <pre><code><%= selector %></code></pre>
+			</div>
+			<div class="code-details-context">
+				<strong>Context:</strong>
+				<textarea><%= context %></textarea>
+			</div>
+		</div>
+	</script>
 </body>
 </html>
