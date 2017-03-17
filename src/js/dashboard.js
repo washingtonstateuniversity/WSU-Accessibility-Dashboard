@@ -7,7 +7,7 @@
 				"top_codes": {
 					"terms": {
 						"field": type,
-						"size": 20
+						"size": 10
 					}
 				}
 			}
@@ -34,6 +34,9 @@
 	};
 
 	aggregateRequest( "code" );
+	aggregateRequest( "selector" );
+	aggregateRequest( "domain" );
+	aggregateRequest( "url" );
 
 	$( document ).ready( function() {
 		var code_details_template = _.template( $( "#code-details-template" ).html() );
