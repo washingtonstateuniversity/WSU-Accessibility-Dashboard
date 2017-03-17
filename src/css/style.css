@@ -1,6 +1,22 @@
 body {
 	font-family: "Open Sans", sans-serif;
+	color: #333;
 	font-size: 16px;
+	background: #fff;
+	margin: 0;
+}
+
+header {
+	background: #f3f3f3;
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+	width: 800px;
+	margin: 0 auto;
+	padding: 1em 0;
+	font-size: 3em;
 }
 
 pre,
@@ -9,8 +25,18 @@ textarea {
 	font-family: Inconsolata, monospace;
 }
 
+h2 {
+	margin: 2em auto;
+	width: 800px;
+}
+
 .set-display-container {
-	width: 75%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#code-display-container .results {
+	width: 800px;
 	margin: 0 auto;
 }
 
@@ -32,28 +58,34 @@ textarea {
 	cursor: pointer;
 }
 
-.code-details-result {
-	margin-bottom: 2.4em;
+.code-details-result-wrapper {
 	width: 100%;
+	background: #f3f3f3;
+}
+
+.code-details-result {
+	margin: 0 auto 2.4em;
+	padding: 2em 0;
+	width: 800px;
 }
 
 .code-details-message {
-	font-size: 1.2em;
 	line-height: 1.5;
 	max-width: 800px;
 }
 
+.code-details-context,
+.code-details-message,
+.code-details-domain,
+.code-details-url,
 .code-details-selector code {
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 
 .code-details-context textarea {
 	width: 100%;
 	border: 0;
-	font-size: 1.2em;
 	height: 80px;
-}
-
-.code-details-url {
-	font-size: 1.2em;
+	padding: .5em;
+	font-size: 1em;
 }

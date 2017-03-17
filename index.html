@@ -7,7 +7,9 @@
 	<script src="js/dashboard.js"></script>
 </head>
 <body>
-	<h1>A11y Dashboard</h1>
+	<header>
+		<h1>A11y Dashboard</h1>
+	</header>
 
 	<!--<section id="domain-display-container" class="set-display-container">
 		<h2>Top Domains</h2>
@@ -19,6 +21,7 @@
 
 	<section id="code-display-container" class="set-display-container">
 		<h2>Top Codes</h2>
+		<div class="results"></div>
 	</section>
 
 	<section id="code-details-display-container" class="set-display-container">
@@ -27,17 +30,23 @@
 	</section>
 
 	<script type="text/template" id="code-details-template">
-		<div class="code-details-result">
-			<div class="code-details-url">
-				Domain: <a href="<%= url %>"><%= domain %></a></div>
-			<div class="code-details-message">
-				<p><strong>Message:</strong> <%= message %></p></div>
-			<div class="code-details-selector">
-				<strong>Selector:</strong> <pre><code><%= selector %></code></pre>
-			</div>
-			<div class="code-details-context">
-				<strong>Context:</strong>
-				<textarea><%= context %></textarea>
+		<div class="code-details-result-wrapper">
+			<div class="code-details-result">
+				<div class="code-details-domain">
+					Domain: <%= domain %>
+				</div>
+				<div class="code-details-url">
+					URL: <a href="<%= url %>"><%= url %></a>
+				</div>
+				<div class="code-details-message">
+					<p><strong>Message:</strong> <%= message %></p></div>
+				<div class="code-details-selector">
+					<strong>Selector:</strong> <pre><code><%= selector %></code></pre>
+				</div>
+				<div class="code-details-context">
+					<strong>Context:</strong>
+					<textarea><%= context %></textarea>
+				</div>
 			</div>
 		</div>
 	</script>

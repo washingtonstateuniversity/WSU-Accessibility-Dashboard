@@ -21,7 +21,7 @@
 			data: JSON.stringify( body ),
 			success: function( response ) {
 				var buckets = response.aggregations.top_codes.buckets;
-				var container = $( "#" + type + "-display-container" );
+				var container = $( "#" + type + "-display-container .results" );
 
 				for ( var i = 0, x = buckets.length; i < x; i++ ) {
 					container.append( "<div class='result'><span class='count'>" + buckets[ i ].doc_count + "</span><span class='" + type + "'>" + decodeURIComponent( buckets[ i ].key ) + "</span></div>" );
@@ -62,11 +62,11 @@
 					for ( var i = 0, j = response.hits.hits.length; i < j; i++ ) {
 						var hit = response.hits.hits[ i ]._source;
 
-						$( ".results" ).append( code_details_template( {
+						$( "#code-details-display-container .results" ).append( code_details_template( {
 								message: hit.message,
 								selector: hit.selector,
 								context: hit.context,
-								url: hit.url,
+								url: decodeURIComponent( hit.url ),
 								domain: hit.domain
 						} ) );
 
