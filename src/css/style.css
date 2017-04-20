@@ -17,6 +17,7 @@ header h1 {
 	margin: 0 auto;
 	padding: 1em 0;
 	font-size: 3em;
+	text-align: center;
 }
 
 pre,
@@ -30,14 +31,38 @@ h2 {
 	width: 800px;
 }
 
-.set-display-container {
-	width: 100%;
-	margin: 0 auto;
+.header {
+	grid-area: header;
 }
 
-#code-display-container .results {
-	width: 800px;
-	margin: 0 auto;
+.overview {
+	padding-left: 1em;
+}
+
+.selector-overview {
+	grid-area: selector;
+}
+
+.code-overview {
+	grid-area: code;
+}
+
+.result-title {
+	grid-area: result;
+}
+
+.result-details {
+	grid-area: details;
+}
+
+main.page-wrapper {
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+	grid-template-areas:
+		"header header header header"
+		"selector selector code code"
+		"result result result result"
+		"details details details details";
 }
 
 .result {
@@ -50,6 +75,7 @@ h2 {
 	flex-basis: 10%;
 }
 
+.selector,
 .domain,
 .url,
 .code {
