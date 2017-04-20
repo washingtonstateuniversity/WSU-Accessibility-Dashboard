@@ -3,11 +3,22 @@
 	var aggregateRequest = function( type ) {
 		var body = {
 			"size": 0,
+			"query": {
+				"bool": {
+					"must": [
+						{
+							"term": {
+								"typeCode": 1
+							}
+						}
+					]
+				}
+			},
 			"aggs": {
 				"top_codes": {
 					"terms": {
 						"field": type,
-						"size": 10
+						"size": 20
 					}
 				}
 			}
