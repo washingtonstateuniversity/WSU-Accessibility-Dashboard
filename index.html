@@ -7,34 +7,24 @@
 	<script src="js/dashboard.js"></script>
 </head>
 <body>
-	<header>
-		<h1>A11y Dashboard</h1>
+<main class="page-wrapper">
+	<header class="header">
+		<h1>WSU Accessibility Dashboard</h1>
 	</header>
 
-	<section id="domain-display-container" class="set-display-container">
-		<h2>Top Domains</h2>
-		<div class="results"></div>
-	</section>
-
-	<section id="url-display-container" class="set-display-container">
-		<h2>Top URLs</h2>
-		<div class="results"></div>
-	</section>
-
-	<section id="selector-display-container" class="set-display-container">
+	<div class="selector-overview overview">
 		<h2>Top Selectors</h2>
 		<div class="results"></div>
-	</section>
-
-	<section id="code-display-container" class="set-display-container">
+	</div>
+	<div class="code-overview overview">
 		<h2>Top Codes</h2>
 		<div class="results"></div>
-	</section>
+	</div>
 
-	<section id="code-details-display-container" class="set-display-container">
-		<h2></h2>
-		<div class="results"></div>
-	</section>
+	<div class="result-title"></div>
+	<div class="result-details"></div>
+</main>
+
 
 	<script type="text/template" id="code-details-template">
 		<div class="code-details-result-wrapper">
