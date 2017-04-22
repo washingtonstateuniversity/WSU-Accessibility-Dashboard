@@ -3,6 +3,17 @@
 	var aggregateRequest = function( type ) {
 		var body = {
 			"size": 0,
+			"query": {
+				"bool": {
+					"must": [
+						{
+							"term": {
+								"typeCode": 1
+							}
+						}
+					]
+				}
+			},
 			"aggs": {
 				"top_codes": {
 					"terms": {
@@ -21,7 +32,7 @@
 			data: JSON.stringify( body ),
 			success: function( response ) {
 				var buckets = response.aggregations.top_codes.buckets;
-				var container = $( "#" + type + "-display-container .results" );
+				var container = $( "." + type + "-overview .results" );
 
 				for ( var i = 0, x = buckets.length; i < x; i++ ) {
 					container.append( "<div class='result'><span class='count'>" + buckets[ i ].doc_count + "</span><span class='" + type + "'>" + decodeURIComponent( buckets[ i ].key ) + "</span></div>" );
@@ -34,48 +45,62 @@
 	};
 
 	aggregateRequest( "code" );
+	aggregateRequest( "selector" );
 
-	$( document ).ready( function() {
+	var fillDetails = function( type, selection ) {
 		var code_details_template = _.template( $( "#code-details-template" ).html() );
 
-		$( "#code-display-container" ).on( "click", ".code", function() {
-			var code = $( this ).html();
-			var body = {
-				"size": 2000,
-				"query": {
-					"match": {
-						"code": code
-					}
+		if ( "selector" === type ) {
+			var selection_text = document.createElement( "textarea" );
+			selection_text.innerHTML = selection;
+			selection = selection_text.value;
+		}
+
+		var body = {
+			"size": 50,
+			"query": {
+				"match": {}
+			}
+		};
+
+		body.query.match[ type ] = selection;
+
+		$( ".result-title" ).html( "<h2>" + selection + "</h2>" );
+		$( ".result-details" ).html( "" );
+
+		$.ajax( {
+			url: "https://elastic.wsu.edu/a11y-scan/record/_search",
+			type: "POST",
+			crossDomain: true,
+			dataType: "json",
+			data: JSON.stringify( body ),
+			success: function( response ) {
+				for ( var i = 0, j = response.hits.hits.length; i < j; i++ ) {
+					var hit = response.hits.hits[ i ]._source;
+
+					$( ".result-details" ).append( code_details_template( {
+						message: hit.message,
+						selector: hit.selector,
+						context: hit.context,
+						url: decodeURIComponent( hit.url ),
+						domain: hit.domain
+					} ) );
+
 				}
-			};
+			},
+			error: function( jqXHR, textStatus, errorThrown ) {
+				console.log( jqXHR, textStatus, errorThrown );
+			}
+		} );
+	};
 
-			$( "#code-details-display-container h2" ).html( code );
-			$( "#code-details-display-container .results" ).html( "" );
+	$( document ).ready( function() {
+		$( ".selector-overview" ).on( "click", ".selector", function() {
+			fillDetails( "selector", $( this ).html() );
+		} );
 
-			$.ajax( {
-				url: "https://elastic.wsu.edu/a11y-scan/record/_search",
-				type: "POST",
-				crossDomain: true,
-				dataType: "json",
-				data: JSON.stringify( body ),
-				success: function( response ) {
-					for ( var i = 0, j = response.hits.hits.length; i < j; i++ ) {
-						var hit = response.hits.hits[ i ]._source;
-
-						$( "#code-details-display-container .results" ).append( code_details_template( {
-								message: hit.message,
-								selector: hit.selector,
-								context: hit.context,
-								url: decodeURIComponent( hit.url ),
-								domain: hit.domain
-						} ) );
-
-					}
-				},
-				error: function( jqXHR, textStatus, errorThrown ) {
-					console.log( jqXHR, textStatus, errorThrown );
-				}
-			} );
+		$( ".code-overview" ).on( "click", ".code", function() {
+			fillDetails( "code", $( this ).html() );
 		} );
 	} );
 }( jQuery, _ ) );
