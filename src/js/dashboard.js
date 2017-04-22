@@ -59,11 +59,17 @@
 		var body = {
 			"size": 50,
 			"query": {
-				"match": {}
+				"bool": {
+					"must": [
+						{ "term": { "typeCode": 1 } }
+					]
+				}
 			}
 		};
 
-		body.query.match[ type ] = selection;
+		var term = { "term": {} };
+		term.term[ type ] = selection;
+		body.query.bool.must.push( term );
 
 		$( ".result-title" ).html( "<h2>" + selection + "</h2>" );
 		$( ".result-details" ).html( "" );
