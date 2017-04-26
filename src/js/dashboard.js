@@ -25,7 +25,7 @@
 		};
 
 		$.ajax( {
-			url: "https://elastic.wsu.edu/a11y-scan/record/_search",
+			url: "https://public.elastic.wsu.edu/a11y-scan/record/_search",
 			type: "POST",
 			crossDomain: true,
 			dataType: "json",
@@ -87,7 +87,7 @@
 		$( ".result-details" ).html( "" );
 
 		$.ajax( {
-			url: "https://elastic.wsu.edu/a11y-scan/record/_search",
+			url: "https://public.elastic.wsu.edu/a11y-scan/record/_search",
 			type: "POST",
 			crossDomain: true,
 			dataType: "json",
