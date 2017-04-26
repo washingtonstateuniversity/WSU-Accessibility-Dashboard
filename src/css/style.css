@@ -47,6 +47,10 @@ h2 {
 	grid-area: code;
 }
 
+.domain-overview {
+	grid-area: domain;
+}
+
 .result-title {
 	grid-area: result;
 }
@@ -57,12 +61,12 @@ h2 {
 
 main.page-wrapper {
 	display: grid;
-	grid-template-columns: 25% 25% 25% 25%;
+	grid-template-columns: 33% 33% 33%;
 	grid-template-areas:
-		"header header header header"
-		"selector selector code code"
-		"result result result result"
-		"details details details details";
+		"header header header"
+		"selector code domain"
+		"result result result"
+		"details details details";
 }
 
 .result {
@@ -82,6 +86,7 @@ main.page-wrapper {
 	color: #0366d6;
 	text-decoration: underline;
 	cursor: pointer;
+	margin-left: 1em;
 }
 
 .code-details-result-wrapper {

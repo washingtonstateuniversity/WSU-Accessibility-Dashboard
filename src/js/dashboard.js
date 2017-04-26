@@ -18,7 +18,7 @@
 				"top_codes": {
 					"terms": {
 						"field": type,
-						"size": 20
+						"size": 10
 					}
 				}
 			}
@@ -33,9 +33,20 @@
 			success: function( response ) {
 				var buckets = response.aggregations.top_codes.buckets;
 				var container = $( "." + type + "-overview .results" );
+				var code_name = "";
+				var code_selector = "";
 
 				for ( var i = 0, x = buckets.length; i < x; i++ ) {
-					container.append( "<div class='result'><span class='count'>" + buckets[ i ].doc_count + "</span><span class='" + type + "'>" + decodeURIComponent( buckets[ i ].key ) + "</span></div>" );
+					code_selector = decodeURIComponent( buckets[ i ].key );
+					code_name = code_selector;
+
+					if ( "code" === type ) {
+						code_name = code_selector.split( "." );
+						code_name.shift();
+						code_name = code_name.join( " " );
+					}
+
+					container.append( "<div class='result'><span class='count'>" + buckets[ i ].doc_count + "</span><span class='" + type + "' data-code='" + code_selector + "'>" + code_name + "</span></div>" );
 				}
 			},
 			error: function( jqXHR, textStatus, errorThrown ) {
@@ -46,6 +57,7 @@
 
 	aggregateRequest( "code" );
 	aggregateRequest( "selector" );
+	aggregateRequest( "domain" );
 
 	var fillDetails = function( type, selection ) {
 		var code_details_template = _.template( $( "#code-details-template" ).html() );
@@ -102,11 +114,15 @@
 
 	$( document ).ready( function() {
 		$( ".selector-overview" ).on( "click", ".selector", function() {
-			fillDetails( "selector", $( this ).html() );
+			fillDetails( "selector", $( this ).data( "code" ) );
 		} );
 
 		$( ".code-overview" ).on( "click", ".code", function() {
-			fillDetails( "code", $( this ).html() );
+			fillDetails( "code", $( this ).data( "code" ) );
+		} );
+
+		$( ".domain-overview" ).on( "click", ".domain", function() {
+			fillDetails( "domain", $( this ).data( "code" ) );
 		} );
 	} );
 }( jQuery, _ ) );
