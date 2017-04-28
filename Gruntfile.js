@@ -15,10 +15,6 @@ module.exports = function( grunt ) {
 			dist: {
 				src: "src/css/*.css",
 				dest: "css/tmp-style.css"
-			},
-			dashboard_js: {
-				src: "src/js/*dashboard.js",
-				dest: "js/dashboard.js"
 			}
 		},
 
@@ -67,23 +63,6 @@ module.exports = function( grunt ) {
 					undef: true,
 					unused: false,
 					node: true     // Define globals available when running in Node.
-				}
-			},
-			dashboard_scripts: {
-				src: [ "src/js/*.js" ],
-				options: {
-					bitwise: true,
-					curly: true,
-					eqeqeq: true,
-					forin: true,
-					freeze: true,
-					noarg: true,
-					nonbsp: true,
-					quotmark: "double",
-					undef: true,
-					unused: true,
-					browser: true, // Define globals exposed by modern browsers.
-					jquery: true   // Define globals exposed by jQuery.
 				}
 			}
 		},
