@@ -1,5 +1,40 @@
 /* global console, _ */
 ( function( $, _ ) {
+	var getWCAGURL = function( code ) {
+		var data = {
+			code: code,
+			text: "",
+			link: "",
+			link_text: ""
+		};
+
+		var code_details = code.split( "." );
+
+		// Remove WCAG2AA, Principle, Guideline
+		code_details.shift();
+		code_details.shift();
+		code_details.shift();
+
+		var criterion = code_details.shift();
+		data.text += criterion.replace( /_/g, "." );
+		data.link_text = code_details.shift();
+		data.link = "https://www.w3.org/TR/WCAG20-TECHS/" + data.link_text;
+
+		var temp_text = "(";
+
+		while ( 0 !== code_details.length ) {
+			temp_text += code_details.shift();
+		}
+
+		if ( "(" !== temp_text ) {
+			data.link_text += " " + temp_text + ")";
+		}
+
+		data.text += " " + data.link_text;
+
+		return data;
+	};
+
 	var aggregateRequest = function( type ) {
 		var body = {
 			"size": 0,
@@ -18,7 +53,7 @@
 				"top_codes": {
 					"terms": {
 						"field": type,
-						"size": 10
+						"size": 15
 					}
 				}
 			}
@@ -41,12 +76,14 @@
 					code_name = code_selector;
 
 					if ( "code" === type ) {
-						code_name = code_selector.split( "." );
-						code_name.shift();
-						code_name = code_name.join( " " );
+						var code_details = getWCAGURL( code_selector );
+						container.append( "<div class='result'>" +
+							"<span class='count'>" + buckets[ i ].doc_count + "</span> " +
+							"<span class='" + type + "' data-code='" + code_selector + "'>" + code_details.text + "</span> " +
+							"<a class='technique' href='" + code_details.link + "' target='_blank'>?</a></div>" );
+					} else {
+						container.append( "<div class='result'><span class='count'>" + buckets[ i ].doc_count + "</span><span class='" + type + "' data-code='" + code_selector + "'>" + code_name + "</span></div>" );
 					}
-
-					container.append( "<div class='result'><span class='count'>" + buckets[ i ].doc_count + "</span><span class='" + type + "' data-code='" + code_selector + "'>" + code_name + "</span></div>" );
 				}
 			},
 			error: function( jqXHR, textStatus, errorThrown ) {
