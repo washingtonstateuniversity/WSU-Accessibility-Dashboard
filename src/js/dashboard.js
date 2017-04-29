@@ -1,5 +1,9 @@
-/* global console, _ */
-( function( $, _ ) {
+import React from "react";
+import ReactDOM from "react-dom";
+import RecordsList from "./components/recordslist.jsx";
+
+/* global console */
+( function( $ ) {
 	var getWCAGURL = function( code ) {
 		var data = {
 			code: code,
@@ -97,8 +101,6 @@
 	aggregateRequest( "domain" );
 
 	var fillDetails = function( type, selection ) {
-		var code_details_template = _.template( $( "#code-details-template" ).html() );
-
 		if ( "selector" === type ) {
 			var selection_text = document.createElement( "textarea" );
 			selection_text.innerHTML = selection;
@@ -130,18 +132,13 @@
 			dataType: "json",
 			data: JSON.stringify( body ),
 			success: function( response ) {
-				for ( var i = 0, j = response.hits.hits.length; i < j; i++ ) {
-					var hit = response.hits.hits[ i ]._source;
+				let results = [];
 
-					$( ".result-details" ).append( code_details_template( {
-						message: hit.message,
-						selector: hit.selector,
-						context: hit.context,
-						url: decodeURIComponent( hit.url ),
-						domain: hit.domain
-					} ) );
-
+				for ( let i = 0, j = response.hits.hits.length; i < j; i++ ) {
+					results.push( response.hits.hits[ i ]._source );
 				}
+
+				ReactDOM.render( <RecordsList records={results} />, document.getElementById( "result-details" ) );
 			},
 			error: function( jqXHR, textStatus, errorThrown ) {
 				console.log( jqXHR, textStatus, errorThrown );
@@ -162,4 +159,4 @@
 			fillDetails( "domain", $( this ).data( "code" ) );
 		} );
 	} );
-}( jQuery, _ ) );
+}( jQuery ) );
