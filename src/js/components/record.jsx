@@ -10,7 +10,10 @@ class Record extends React.Component {
 					Domain: {this.props.domain}
 				</div>
 				<div className="code-details-url">
-					URL: <a href="{this.props.url}">{this.props.url}</a>
+					URL: <a href={this.props.url}>{this.props.url}</a>
+				</div>
+				<div className="code-details-code">
+					<p><strong>Code:</strong> {this.props.code}</p>
 				</div>
 				<div className="code-details-message">
 					<p><strong>Message:</strong> {this.props.message}</p></div>

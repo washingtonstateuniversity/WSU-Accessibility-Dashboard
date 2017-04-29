@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import RecordsList from "./components/recordslist.jsx";
 
-/* global console, _ */
-( function( $, _ ) {
+/* global console */
+( function( $ ) {
 	var getWCAGURL = function( code ) {
 		var data = {
 			code: code,
@@ -159,4 +159,4 @@ import RecordsList from "./components/recordslist.jsx";
 			fillDetails( "domain", $( this ).data( "code" ) );
 		} );
 	} );
-}( jQuery, _ ) );
+}( jQuery ) );
