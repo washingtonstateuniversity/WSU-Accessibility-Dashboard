@@ -29,7 +29,7 @@
     "react-dom": "^15.5.4"
   },
   "scripts": {
-    "build": "webpack && rm -f build && grunt build",
+    "build": "webpack && rm -rf build && grunt build",
     "distro": "rm -f dashboard.tar* && webpack && rm -rf build && grunt build && tar --create --file=dashboard.tar build && gzip dashboard.tar"
   }
 }
