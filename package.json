@@ -1,6 +1,6 @@
 {
   "name": "wsu-a11y-dashboard",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/washingtonstateuniversity/wsu-a11y-dashboard"
@@ -17,6 +17,7 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "~1.0.1",
     "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-cssmin": "~2.1.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-uglify": "^2.2.0",
@@ -26,5 +27,9 @@
     "grunt-stylelint": "^0.7.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
+  },
+  "scripts": {
+    "build": "webpack && rm -f build && grunt build",
+    "distro": "rm -f dashboard.tar* && webpack && rm -rf build && grunt build && tar --create --file=dashboard.tar build && gzip dashboard.tar"
   }
 }
