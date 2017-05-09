@@ -19,9 +19,6 @@ class Dashboard extends React.Component {
 				<h2>Top Domains</h2>
 				<div className="results" />
 			</div>
-
-			<div className="result-title" />
-			<div id="result-details" className="result-details" />
 		</div>
 	}
 }
