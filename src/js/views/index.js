@@ -15,15 +15,15 @@ class Index {
 
 		$( document ).ready( function() {
 			$( ".selector-overview" ).on( "click", ".selector", function() {
-				self.fillDetails( "selector", $( this ).data( "code" ) );
+				window.location.hash = "/selector/" + $( this ).data( "code" );
 			} );
 
 			$( ".code-overview" ).on( "click", ".code", function() {
-				self.fillDetails( "code", $( this ).data( "code" ) );
+				window.location.hash = "/code/" + $( this ).data( "code" );
 			} );
 
 			$( ".domain-overview" ).on( "click", ".domain", function() {
-				self.fillDetails( "domain", $( this ).data( "code" ) );
+				window.location.hash = "/domain/" + $( this ).data( "code" );
 			} );
 
 			self.aggregateRequest( "code" );
