@@ -70,10 +70,12 @@ class DashboardOverview extends React.Component {
 	}
 
 	render() {
-		let overview_class = this.props.type + "-overview overview";
+		let overview_class = this.props.type + "-overview overview",
+			view_all_url = "/#/" + this.props.type;
 
 		return 	<div className={overview_class}>
 			<h2>{this.props.title}</h2>
+			<a href={view_all_url}>View all</a>
 			<div className="results" />
 		</div>
 	}
