@@ -1,34 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Dashboard from "../components/dashboard.jsx";
-
 let get_wcag_url = require( "../lib/wcagurl.js" );
 
-class Index {
-	setup() {
-		let $ = window.jQuery;
-
-		let self = this;
-
-		ReactDOM.render( <Dashboard />, document.getElementById( "container" ) );
-
-		$( document ).ready( function() {
-			$( ".selector-overview" ).on( "click", ".selector", function() {
-				window.location.hash = "/selector/" + $( this ).data( "code" );
-			} );
-
-			$( ".code-overview" ).on( "click", ".code", function() {
-				window.location.hash = "/code/" + $( this ).data( "code" );
-			} );
-
-			$( ".domain-overview" ).on( "click", ".domain", function() {
-				window.location.hash = "/domain/" + $( this ).data( "code" );
-			} );
-
-			self.aggregateRequest( "code" );
-			self.aggregateRequest( "selector" );
-			self.aggregateRequest( "domain" );
-		} );
+class DashboardOverview extends React.Component {
+	constructor( props ) {
+		super( props );
 	}
 
 	aggregateRequest( type ) {
@@ -86,5 +60,23 @@ class Index {
 			}
 		} );
 	}
+
+	componentDidMount() {
+		$( this.props.type + "-overview" ).on( "click", "." + this.props.type, function() {
+			window.location.hash = "/" + this.props.type + "/" + $( this ).data( "code" );
+		} );
+
+		this.aggregateRequest( this.props.type );
+	}
+
+	render() {
+		let overview_class = this.props.type + "-overview overview";
+
+		return 	<div className={overview_class}>
+			<h2>{this.props.title}</h2>
+			<div className="results" />
+		</div>
+	}
 }
-export default Index;
+
+export default DashboardOverview;

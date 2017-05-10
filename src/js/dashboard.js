@@ -1,5 +1,6 @@
 import React from "react";
-import Index from "./views/index.js";
+import ReactDom from "react-dom";
+import Dashboard from "./components/dashboard.jsx";
 import Grouping from "./views/grouping.js";
 import Detail from "./views/detail.js";
 import ErrorPage from "./views/errorpage.js";
@@ -14,8 +15,7 @@ import ErrorPage from "./views/errorpage.js";
 		document.getElementById( "container" ).innerHTML = "";
 
 		if ( 1 === hash.length ) {
-			let i = new Index;
-			i.setup();
+			ReactDOM.render( <Dashboard />, document.getElementById( "container" ) );
 			return;
 		}
 

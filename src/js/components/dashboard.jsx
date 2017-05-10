@@ -1,3 +1,5 @@
+import DashboardOverview from "./dashboardOverview.jsx";
+
 class Dashboard extends React.Component {
 	constructor( props ) {
 		super( props );
@@ -5,20 +7,9 @@ class Dashboard extends React.Component {
 
 	render() {
 		return 	<div className="dashboard-wrapper">
-			<div className="code-overview overview">
-				<h2>Top Codes</h2>
-				<div className="results" />
-			</div>
-
-			<div className="selector-overview overview">
-				<h2>Top Selectors</h2>
-				<div className="results" />
-			</div>
-
-			<div className="domain-overview overview">
-				<h2>Top Domains</h2>
-				<div className="results" />
-			</div>
+			<DashboardOverview title="Top Codes" type="code" />
+			<DashboardOverview title="Top Selectors" type="selector" />
+			<DashboardOverview title="Top Domains" type="domain" />
 		</div>
 	}
 }
