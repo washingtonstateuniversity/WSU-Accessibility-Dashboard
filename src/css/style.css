@@ -1,3 +1,9 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	font-family: "Open Sans", sans-serif;
 	color: #333;
@@ -27,46 +33,48 @@ textarea {
 }
 
 h2 {
-	margin: 2em auto;
-	width: 800px;
+	margin: 1em 0;
 }
 
 .header {
 	grid-area: header;
 }
 
+#container {
+	grid-area: container;
+}
+
+.dashboard-wrapper {
+	display: flex;
+}
+
 .overview {
-	padding-left: 1em;
+	width: calc(33% - 3em);
+	padding: 2em;
 }
 
-.selector-overview {
-	grid-area: selector;
+.overview ul {
+	padding: 0;
+	margin: 1em 0;
 }
 
-.code-overview {
-	grid-area: code;
+.overview li {
+	margin: 0 0 .6em;
 }
 
-.domain-overview {
-	grid-area: domain;
-}
-
-.result-title {
-	grid-area: result;
-}
-
-.result-details {
-	grid-area: details;
+.overview a {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-all;
+	hyphens: auto;
 }
 
 main.page-wrapper {
 	display: grid;
-	grid-template-columns: 33% 33% 33%;
+	grid-template-columns: 33% 33% 34%;
 	grid-template-areas:
 		"header header header"
-		"selector code domain"
-		"result result result"
-		"details details details";
+		"container container container";
 }
 
 .result {
