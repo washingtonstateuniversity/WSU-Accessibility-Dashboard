@@ -75,8 +75,7 @@ class Index {
 						let code_details = get_wcag_url( code_selector );
 						container.append( "<div class='result'>" +
 							"<span class='count'>" + buckets[ i ].doc_count + "</span> " +
-							"<span class='" + type + "' data-code='" + code_selector + "'>" + code_details.text + "</span> " +
-							"<a class='technique' href='" + code_details.link + "' target='_blank'>?</a></div>" );
+							"<span class='" + type + "' data-code='" + code_selector + "'>" + code_details.text + "</span></div>" );
 					} else {
 						container.append( "<div class='result'><span class='count'>" + buckets[ i ].doc_count + "</span><span class='" + type + "' data-code='" + code_selector + "'>" + code_name + "</span></div>" );
 					}
