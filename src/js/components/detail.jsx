@@ -27,6 +27,7 @@ class Detail extends React.Component {
 		}
 
 		let aggregates;
+		let breadcrumb_extend;
 
 		if ( ! this.props.subtype && ! this.props.detail ) {
 			aggregates = (
@@ -34,6 +35,15 @@ class Detail extends React.Component {
 					<TypeOverview title={type_one_title} type={type_one_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
 					<TypeOverview title={type_two_title} type={type_two_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
 				</div>
+			);
+
+			breadcrumb_extend = (
+				<li>{this.props.record}</li>
+			);
+		} else {
+			let url = "/#/" + this.props.grouping + "/" + this.props.record;
+			breadcrumb_extend = (
+				<span><li><a href={url}>{this.props.record}</a></li><li>{this.props.detail}</li></span>
 			);
 		}
 
@@ -46,9 +56,7 @@ class Detail extends React.Component {
 					<li>
 						<a href={grouping_href}>{grouping_title}s</a>
 					</li>
-					<li>
-						{this.props.record}
-					</li>
+					{breadcrumb_extend}
 				</ul>
 				<h1>{grouping_title}: {this.props.record}</h1>
 			</div>
