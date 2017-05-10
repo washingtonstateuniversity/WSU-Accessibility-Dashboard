@@ -13,16 +13,16 @@ class Detail extends React.Component {
 	render() {
 		let grouping_title = this.props.grouping.charAt( 0 ).toUpperCase() + this.props.grouping.slice( 1 ),
 			grouping_href = "/#/" + this.props.grouping,
-			type_one_title = "Top Selectors",
+			type_one_title = "Selectors",
 			type_one_type = "selector",
-			type_two_title = "Top Domains",
+			type_two_title = "Domains",
 			type_two_type = "domain";
 
 		if ( "domain" === this.props.grouping ) {
-			type_two_title = "Top Codes";
+			type_two_title = "Codes";
 			type_two_type = "code";
 		} else if ( "selector" === this.props.grouping ) {
-			type_one_title = "Top Codes";
+			type_one_title = "Codes";
 			type_one_type = "code";
 		}
 
