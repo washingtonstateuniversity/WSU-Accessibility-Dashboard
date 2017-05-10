@@ -6,10 +6,20 @@ class TypePage extends React.Component {
 	}
 
 	render() {
-		let title = "All " + this.props.type.charAt( 0 ).toUpperCase() + this.props.type.slice( 1 ) + "s";
+		let title = this.props.type.charAt( 0 ).toUpperCase() + this.props.type.slice( 1 ) + "s";
 
 		return 	<div className="type-wrapper">
-			<a href="/">Dashboard Home</a>
+			<div className="view-head">
+				<ul className="breadcrumb">
+					<li>
+						<a href="/">Dashboard Home</a>
+					</li>
+					<li>
+						{title}
+					</li>
+				</ul>
+				<h1>All {title}</h1>
+			</div>
 			<TypeOverview title={title} type={this.props.type} count="25" />
 		</div>
 	}

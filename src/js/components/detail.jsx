@@ -27,7 +27,7 @@ class Detail extends React.Component {
 		}
 
 		return 	<div className="detail-wrapper">
-			<div className="detail-head">
+			<div className="view-head">
 				<ul className="breadcrumb">
 					<li>
 						<a href="/">Dashboard Home</a>

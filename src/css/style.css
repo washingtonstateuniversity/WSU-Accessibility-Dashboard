@@ -82,7 +82,7 @@ main.page-wrapper {
 	flex-wrap: wrap;
 }
 
-.detail-head {
+.view-head {
 	width: 100%;
 }
 
@@ -106,7 +106,7 @@ ul.breadcrumb {
 	content: "";
 }
 
-.detail-head h1 {
+.view-head h1 {
 	margin-top: 2rem;
 	padding-left: 2rem;
 }
