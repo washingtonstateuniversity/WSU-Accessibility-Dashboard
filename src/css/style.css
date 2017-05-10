@@ -44,12 +44,20 @@ h2 {
 	grid-area: container;
 }
 
+main.page-wrapper {
+	display: grid;
+	grid-template-columns: 33% 33% 34%;
+	grid-template-areas:
+		"header header header"
+		"container container container";
+}
+
 .dashboard-wrapper {
 	display: flex;
 }
 
 .overview {
-	width: calc(33% - 3em);
+	width: calc(33% - 4em);
 	padding: 2em;
 }
 
@@ -69,12 +77,21 @@ h2 {
 	hyphens: auto;
 }
 
-main.page-wrapper {
-	display: grid;
-	grid-template-columns: 33% 33% 34%;
-	grid-template-areas:
-		"header header header"
-		"container container container";
+.detail-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.detail-head {
+	width: 100%;
+}
+
+.detail-wrapper .overview {
+	width: calc(50% - 4em);
+}
+
+.detail-container {
+	width: 100%;
 }
 
 .result {

@@ -7,7 +7,7 @@ class TypeOverview extends React.Component {
 		super( props );
 	}
 
-	aggregateRequest( type, count ) {
+	aggregateRequest( type, count, subtype, detail ) {
 		let body = {
 			"size": 0,
 			"query": {
@@ -30,6 +30,12 @@ class TypeOverview extends React.Component {
 				}
 			}
 		};
+
+		if ( subtype && detail ) {
+			let term = {};
+			term[ subtype ] = detail;
+			body.query.bool.must.push( { term: term } );
+		}
 
 		$.ajax( {
 			url: "https://public.elastic.wsu.edu/a11y-scan/record/_search",
@@ -69,7 +75,7 @@ class TypeOverview extends React.Component {
 	}
 
 	componentDidMount() {
-		this.aggregateRequest( this.props.type, this.props.count );
+		this.aggregateRequest( this.props.type, this.props.count, this.props.subtype, this.props.detail );
 	}
 
 	render() {

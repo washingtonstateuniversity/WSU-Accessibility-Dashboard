@@ -1,4 +1,5 @@
 import RecordsList from "../components/recordslist.jsx";
+import TypeOverview from "../components/typeOverview.jsx";
 
 class Detail extends React.Component {
 	constructor( props ) {
@@ -10,11 +11,30 @@ class Detail extends React.Component {
 	}
 
 	render() {
-		return 	<div className="dashboard-wrapper">
-			<a href="/">Dashboard Home</a>
-			<h1>{this.props.grouping} {this.props.record}</h1>
-			<div className="result-title" />
-			<div id="result-details" className="result-details" />
+		let type_one_title = "Top Selectors";
+		let type_one_type = "selector";
+		let type_two_title = "Top Domains";
+		let type_two_type = "domain";
+
+		if ( "domain" === this.props.grouping ) {
+			type_two_title = "Top Codes";
+			type_two_type = "code";
+		} else if ( "selector" === this.props.grouping ) {
+			type_one_title = "Top Codes";
+			type_one_type = "code";
+		}
+
+		return 	<div className="detail-wrapper">
+			<div className="detail-head">
+				<a href="/">Dashboard Home</a>
+				<h1>{this.props.grouping} {this.props.record}</h1>
+			</div>
+			<TypeOverview title={type_one_title} type={type_one_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
+			<TypeOverview title={type_two_title} type={type_two_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
+			<div className="detail-container">
+				<div className="result-title" />
+				<div id="result-details" className="result-details" />
+			</div>
 		</div>
 	}
 
