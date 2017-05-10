@@ -31,6 +31,5 @@ import ErrorPage from "./components/errorPage.jsx";
 	};
 
 	handle_hash_route();
-
 	$( window ).on( "hashchange", handle_hash_route );
 }( jQuery ) );

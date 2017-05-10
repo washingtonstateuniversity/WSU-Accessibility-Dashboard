@@ -39,8 +39,6 @@ class DashboardOverview extends React.Component {
 			data: JSON.stringify( body ),
 			success: function( response ) {
 				let buckets = response.aggregations.top_codes.buckets,
-					container = $( "." + type + "-overview .results" ),
-					code_name = "",
 					code_selector = "",
 					items = [];
 
