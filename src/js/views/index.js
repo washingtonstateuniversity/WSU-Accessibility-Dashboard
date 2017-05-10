@@ -32,7 +32,7 @@ class Index {
 	}
 
 	aggregateRequest( type ) {
-		var body = {
+		let body = {
 			"size": 0,
 			"query": {
 				"bool": {
@@ -62,17 +62,17 @@ class Index {
 			dataType: "json",
 			data: JSON.stringify( body ),
 			success: function( response ) {
-				var buckets = response.aggregations.top_codes.buckets;
-				var container = $( "." + type + "-overview .results" );
-				var code_name = "";
-				var code_selector = "";
+				let buckets = response.aggregations.top_codes.buckets,
+					container = $( "." + type + "-overview .results" ),
+					code_name = "",
+					code_selector = "";
 
-				for ( var i = 0, x = buckets.length; i < x; i++ ) {
+				for ( let i = 0, x = buckets.length; i < x; i++ ) {
 					code_selector = decodeURIComponent( buckets[ i ].key );
 					code_name = code_selector;
 
 					if ( "code" === type ) {
-						var code_details = get_wcag_url( code_selector );
+						let code_details = get_wcag_url( code_selector );
 						container.append( "<div class='result'>" +
 							"<span class='count'>" + buckets[ i ].doc_count + "</span> " +
 							"<span class='" + type + "' data-code='" + code_selector + "'>" + code_details.text + "</span> " +
