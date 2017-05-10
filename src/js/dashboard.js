@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import Dashboard from "./components/dashboard.jsx";
-import Grouping from "./views/grouping.js";
+import Grouping from "./components/grouping.jsx";
 import Detail from "./views/detail.js";
 import ErrorPage from "./views/errorpage.js";
 
@@ -22,8 +22,7 @@ import ErrorPage from "./views/errorpage.js";
 		let valid_type = ( "domain" === hash[ 1 ] || "code" === hash[ 1 ] || "selector" === hash[ 1 ] );
 
 		if ( 2 === hash.length && true === valid_type ) {
-			let g = new Grouping;
-			g.setup( hash[ 1 ] );
+			ReactDom.render( <Grouping type={hash[ 1 ] }/>, document.getElementById( "container" ) );
 		} else if ( 3 === hash.length ) {
 			let d = new Detail;
 			d.setup( hash[ 1 ], hash[ 2 ] );
