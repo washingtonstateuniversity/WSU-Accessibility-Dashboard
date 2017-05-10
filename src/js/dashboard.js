@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import Dashboard from "./components/dashboard.jsx";
+import HomePage from "./components/homePage.jsx";
 import TypePage from "./components/typePage.jsx";
 import Detail from "./components/detail.jsx";
 import ErrorPage from "./components/errorPage.jsx";
@@ -15,7 +15,7 @@ import ErrorPage from "./components/errorPage.jsx";
 		document.getElementById( "container" ).innerHTML = "";
 
 		if ( 1 === hash.length ) {
-			ReactDOM.render( <Dashboard />, document.getElementById( "container" ) );
+			ReactDOM.render( <HomePage />, document.getElementById( "container" ) );
 			return;
 		}
 

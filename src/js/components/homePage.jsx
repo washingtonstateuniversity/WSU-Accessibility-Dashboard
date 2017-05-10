@@ -1,6 +1,6 @@
 import DashboardOverview from "./dashboardOverview.jsx";
 
-class Dashboard extends React.Component {
+class HomePage extends React.Component {
 	constructor( props ) {
 		super( props );
 	}
@@ -14,4 +14,4 @@ class Dashboard extends React.Component {
 	}
 }
 
-export default Dashboard;
+export default HomePage;
