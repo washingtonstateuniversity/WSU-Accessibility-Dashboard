@@ -77,7 +77,7 @@ main.page-wrapper {
 	hyphens: auto;
 }
 
-.detail-wrapper {
+.aggregate-container {
 	display: flex;
 	flex-wrap: wrap;
 }

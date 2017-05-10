@@ -26,6 +26,17 @@ class Detail extends React.Component {
 			type_one_type = "code";
 		}
 
+		let aggregates;
+
+		if ( ! this.props.subtype && ! this.props.detail ) {
+			aggregates = (
+				<div className="aggregate-container">
+					<TypeOverview title={type_one_title} type={type_one_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
+					<TypeOverview title={type_two_title} type={type_two_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
+				</div>
+			);
+		}
+
 		return 	<div className="detail-wrapper">
 			<div className="view-head">
 				<ul className="breadcrumb">
@@ -41,8 +52,7 @@ class Detail extends React.Component {
 				</ul>
 				<h1>{grouping_title}: {this.props.record}</h1>
 			</div>
-			<TypeOverview title={type_one_title} type={type_one_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
-			<TypeOverview title={type_two_title} type={type_two_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
+			{aggregates}
 			<div className="detail-container">
 				<div className="result-title" />
 				<div id="result-details" className="result-details" />
