@@ -11,10 +11,12 @@ class Detail extends React.Component {
 	}
 
 	render() {
-		let type_one_title = "Top Selectors";
-		let type_one_type = "selector";
-		let type_two_title = "Top Domains";
-		let type_two_type = "domain";
+		let grouping_title = this.props.grouping.charAt( 0 ).toUpperCase() + this.props.grouping.slice( 1 ),
+			grouping_href = "/#/" + this.props.grouping,
+			type_one_title = "Top Selectors",
+			type_one_type = "selector",
+			type_two_title = "Top Domains",
+			type_two_type = "domain";
 
 		if ( "domain" === this.props.grouping ) {
 			type_two_title = "Top Codes";
@@ -26,8 +28,18 @@ class Detail extends React.Component {
 
 		return 	<div className="detail-wrapper">
 			<div className="detail-head">
-				<a href="/">Dashboard Home</a>
-				<h1>{this.props.grouping} {this.props.record}</h1>
+				<ul className="breadcrumb">
+					<li>
+						<a href="/">Dashboard Home</a>
+					</li>
+					<li>
+						<a href={grouping_href}>{grouping_title}s</a>
+					</li>
+					<li>
+						{this.props.record}
+					</li>
+				</ul>
+				<h1>{grouping_title}: {this.props.record}</h1>
 			</div>
 			<TypeOverview title={type_one_title} type={type_one_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
 			<TypeOverview title={type_two_title} type={type_two_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
