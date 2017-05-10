@@ -3,7 +3,7 @@ import ReactDom from "react-dom";
 import Dashboard from "./components/dashboard.jsx";
 import Grouping from "./components/grouping.jsx";
 import Detail from "./components/detail.jsx";
-import ErrorPage from "./views/errorpage.js";
+import ErrorPage from "./components/errorPage.jsx";
 
 ( function( $ ) {
 	let handle_hash_route = function() {
@@ -26,8 +26,7 @@ import ErrorPage from "./views/errorpage.js";
 		} else if ( 3 === hash.length ) {
 			ReactDom.render( <Detail grouping={hash[ 1 ]} record={hash[ 2 ]} />, document.getElementById( "container" ) );
 		} else {
-			let e = new ErrorPage;
-			e.setup();
+			ReactDom.render( <ErrorPage /> );
 		}
 	};
 
