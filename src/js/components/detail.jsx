@@ -54,12 +54,12 @@ class Detail extends React.Component {
 		let $ = window.jQuery;
 
 		if ( "selector" === type ) {
-			var selection_text = document.createElement( "textarea" );
+			let selection_text = document.createElement( "textarea" );
 			selection_text.innerHTML = selection;
 			selection = selection_text.value;
 		}
 
-		var body = {
+		let body = {
 			"size": 50,
 			"query": {
 				"bool": {
@@ -70,7 +70,7 @@ class Detail extends React.Component {
 			}
 		};
 
-		var term = { "term": {} };
+		let term = { "term": {} };
 		term.term[ type ] = selection;
 		body.query.bool.must.push( term );
 
