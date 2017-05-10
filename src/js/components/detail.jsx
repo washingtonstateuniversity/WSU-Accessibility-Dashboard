@@ -7,7 +7,7 @@ class Detail extends React.Component {
 	}
 
 	componentDidMount() {
-		this.fillDetails( this.props.grouping, this.props.record );
+		this.fillDetails( this.props.grouping, this.props.record, this.props.subtype, this.props.detail );
 	}
 
 	render() {
@@ -50,7 +50,7 @@ class Detail extends React.Component {
 		</div>
 	}
 
-	fillDetails( type, selection ) {
+	fillDetails( type, selection, subtype, detail ) {
 		let $ = window.jQuery;
 
 		if ( "selector" === type ) {
@@ -73,6 +73,13 @@ class Detail extends React.Component {
 		let term = { "term": {} };
 		term.term[ type ] = selection;
 		body.query.bool.must.push( term );
+
+		if ( subtype && detail ) {
+			let term = { "term": {} };
+			term.term[ subtype ] = detail;
+			body.query.bool.must.push( term );
+			selection += " > " + detail;
+		}
 
 		$( ".result-title" ).html( "<h2>Results for " + selection + "</h2>" );
 		$( ".result-details" ).html( "" );

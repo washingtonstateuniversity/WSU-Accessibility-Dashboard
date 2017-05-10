@@ -5,17 +5,26 @@ class TypeListItem extends React.Component {
 
 	handleClick( e ) {
 		e.preventDefault();
-		console.log( e.target.dataset.hash );
-		window.location.hash = "/" + e.target.dataset.hash;
+		window.location.hash = e.target.dataset.view + "/" + e.target.dataset.hash;
 	}
 
 	render() {
 		let hash = this.props.type + "/" + this.props.code;
 		let url = "/#/" + hash;
+		let view = "";
+
+		if ( this.props.subtype && this.props.detail ) {
+			view = "/" + this.props.subtype + "/" + this.props.detail;
+		}
 
 		return 	<li className="result">
 			<span className="count">{this.props.count}</span>
-			<a className={this.props.type} onClick={this.handleClick} data-code={this.props.selector} data-hash={hash} href={url} >{this.props.name}</a>
+			<a className={this.props.type}
+			   onClick={this.handleClick}
+			   data-code={this.props.selector}
+			   data-view={view}
+			   data-hash={hash}
+			   href={url} >{this.props.name}</a>
 		</li>
 	}
 }

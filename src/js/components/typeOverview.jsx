@@ -66,7 +66,12 @@ class TypeOverview extends React.Component {
 					items.push( item );
 				}
 
-				ReactDOM.render( <TypeList items={items} />, document.getElementById( type + "-results" ) );
+				if ( subtype && detail ) {
+					ReactDOM.render( <TypeList items={items} subtype={subtype} detail={detail} />, document.getElementById( type + "-results" ) );
+				} else {
+					ReactDOM.render( <TypeList items={items} />, document.getElementById( type + "-results" ) );
+				}
+
 			},
 			error: function( jqXHR, textStatus, errorThrown ) {
 				console.log( jqXHR, textStatus, errorThrown );

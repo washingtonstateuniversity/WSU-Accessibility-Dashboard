@@ -25,8 +25,10 @@ import ErrorPage from "./components/errorPage.jsx";
 			ReactDom.render( <TypePage type={hash[ 1 ] }/>, document.getElementById( "container" ) );
 		} else if ( 3 === hash.length ) {
 			ReactDom.render( <Detail grouping={hash[ 1 ]} record={hash[ 2 ]} />, document.getElementById( "container" ) );
+		} else if ( 5 === hash.length ) {
+			ReactDom.render( <Detail grouping={hash[ 1 ]} record={hash[ 2 ]} subtype={hash[ 3 ]} detail={hash[ 4 ]} />, document.getElementById( "container" ) );
 		} else {
-			ReactDom.render( <ErrorPage /> );
+			ReactDom.render( <ErrorPage />, document.getElementById( "container" ) );
 		}
 	};
 
