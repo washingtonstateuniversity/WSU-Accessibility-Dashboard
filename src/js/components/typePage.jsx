@@ -1,4 +1,4 @@
-import DashboardOverview from "./dashboardOverview.jsx";
+import TypeOverview from "./typeOverview.jsx";
 
 class TypePage extends React.Component {
 	constructor( props ) {
@@ -10,7 +10,7 @@ class TypePage extends React.Component {
 
 		return 	<div className="dashboard-wrapper">
 			<a href="/">Dashboard Home</a>
-			<DashboardOverview title={title} type={this.props.type} count="25" />
+			<TypeOverview title={title} type={this.props.type} count="25" />
 		</div>
 	}
 }

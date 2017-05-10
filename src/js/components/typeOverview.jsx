@@ -2,7 +2,7 @@ import OverviewList from "../components/overviewList.jsx";
 
 let get_wcag_url = require( "../lib/wcagurl.js" );
 
-class DashboardOverview extends React.Component {
+class TypeOverview extends React.Component {
 	constructor( props ) {
 		super( props );
 	}
@@ -85,4 +85,4 @@ class DashboardOverview extends React.Component {
 	}
 }
 
-export default DashboardOverview;
+export default TypeOverview;
