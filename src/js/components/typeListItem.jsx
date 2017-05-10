@@ -1,4 +1,4 @@
-class OverviewListItem extends React.Component {
+class TypeListItem extends React.Component {
 	constructor( props ) {
 		super( props );
 	}
@@ -13,4 +13,4 @@ class OverviewListItem extends React.Component {
 	}
 }
 
-export default OverviewListItem;
+export default TypeListItem;

@@ -1,4 +1,4 @@
-import OverviewList from "../components/overviewList.jsx";
+import TypeList from "./typeList.jsx";
 
 let get_wcag_url = require( "../lib/wcagurl.js" );
 
@@ -60,7 +60,7 @@ class TypeOverview extends React.Component {
 					items.push( item );
 				}
 
-				ReactDOM.render( <OverviewList items={items} />, document.getElementById( type + "-results" ) );
+				ReactDOM.render( <TypeList items={items} />, document.getElementById( type + "-results" ) );
 			},
 			error: function( jqXHR, textStatus, errorThrown ) {
 				console.log( jqXHR, textStatus, errorThrown );
