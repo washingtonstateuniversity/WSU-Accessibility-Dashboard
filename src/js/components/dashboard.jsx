@@ -7,9 +7,9 @@ class Dashboard extends React.Component {
 
 	render() {
 		return 	<div className="dashboard-wrapper">
-			<DashboardOverview title="Top Codes" type="code" />
-			<DashboardOverview title="Top Selectors" type="selector" />
-			<DashboardOverview title="Top Domains" type="domain" />
+			<DashboardOverview title="Top Codes" type="code" count="10" />
+			<DashboardOverview title="Top Selectors" type="selector" count="10" />
+			<DashboardOverview title="Top Domains" type="domain" count="10" />
 		</div>
 	}
 }

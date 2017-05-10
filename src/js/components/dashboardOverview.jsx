@@ -5,7 +5,7 @@ class DashboardOverview extends React.Component {
 		super( props );
 	}
 
-	aggregateRequest( type ) {
+	aggregateRequest( type, count ) {
 		let body = {
 			"size": 0,
 			"query": {
@@ -23,7 +23,7 @@ class DashboardOverview extends React.Component {
 				"top_codes": {
 					"terms": {
 						"field": type,
-						"size": 15
+						"size": count
 					}
 				}
 			}
@@ -66,7 +66,7 @@ class DashboardOverview extends React.Component {
 			window.location.hash = "/" + this.props.type + "/" + $( this ).data( "code" );
 		} );
 
-		this.aggregateRequest( this.props.type );
+		this.aggregateRequest( this.props.type, this.props.count );
 	}
 
 	render() {
