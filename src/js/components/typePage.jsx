@@ -1,6 +1,6 @@
 import DashboardOverview from "./dashboardOverview.jsx";
 
-class Grouping extends React.Component {
+class TypePage extends React.Component {
 	constructor( props ) {
 		super( props );
 	}
@@ -15,4 +15,4 @@ class Grouping extends React.Component {
 	}
 }
 
-export default Grouping;
+export default TypePage;
