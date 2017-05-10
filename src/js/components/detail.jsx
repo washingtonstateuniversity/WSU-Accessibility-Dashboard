@@ -74,7 +74,7 @@ class Detail extends React.Component {
 		term.term[ type ] = selection;
 		body.query.bool.must.push( term );
 
-		$( ".result-title" ).html( "<h2>" + selection + "</h2>" );
+		$( ".result-title" ).html( "<h2>Results for " + selection + "</h2>" );
 		$( ".result-details" ).html( "" );
 
 		$.ajax( {

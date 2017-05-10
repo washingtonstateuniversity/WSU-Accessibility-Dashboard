@@ -58,7 +58,7 @@ main.page-wrapper {
 
 .overview {
 	width: calc(33% - 4em);
-	padding: 2em;
+	padding: 0 2em;
 }
 
 .overview ul {
@@ -87,6 +87,7 @@ main.page-wrapper {
 }
 
 ul.breadcrumb {
+	margin-top: 1.5em;
 	padding-left: 2rem;
 }
 
@@ -116,7 +117,12 @@ ul.breadcrumb {
 }
 
 .detail-container {
+	margin-top: 3em;
 	width: 100%;
+}
+
+.result-title h2 {
+	padding-left: 2rem;
 }
 
 .result {
@@ -163,9 +169,9 @@ ul.breadcrumb {
 }
 
 .code-details-result {
-	margin: 0 auto 2.4em;
+	margin: 0 0 1em 2rem;
 	padding: 2em 0;
-	width: 800px;
+	max-width: 800px;
 }
 
 .code-details-message {
