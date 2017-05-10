@@ -1,3 +1,5 @@
+import OverviewList from "../components/overviewList.jsx";
+
 let get_wcag_url = require( "../lib/wcagurl.js" );
 
 class DashboardOverview extends React.Component {
@@ -39,21 +41,28 @@ class DashboardOverview extends React.Component {
 				let buckets = response.aggregations.top_codes.buckets,
 					container = $( "." + type + "-overview .results" ),
 					code_name = "",
-					code_selector = "";
+					code_selector = "",
+					items = [];
 
 				for ( let i = 0, x = buckets.length; i < x; i++ ) {
 					code_selector = decodeURIComponent( buckets[ i ].key );
-					code_name = code_selector;
+
+					let item = {
+						"count": buckets[ i ].doc_count,
+						"type": type,
+						"code": code_selector,
+						"name": code_selector
+					};
 
 					if ( "code" === type ) {
 						let code_details = get_wcag_url( code_selector );
-						container.append( "<div class='result'>" +
-							"<span class='count'>" + buckets[ i ].doc_count + "</span> " +
-							"<span class='" + type + "' data-code='" + code_selector + "'>" + code_details.text + "</span></div>" );
-					} else {
-						container.append( "<div class='result'><span class='count'>" + buckets[ i ].doc_count + "</span><span class='" + type + "' data-code='" + code_selector + "'>" + code_name + "</span></div>" );
+						item.name = code_details.text;
 					}
+
+					items.push( item );
 				}
+
+				ReactDOM.render( <OverviewList items={items} />, document.getElementById( type + "-results" ) );
 			},
 			error: function( jqXHR, textStatus, errorThrown ) {
 				console.log( jqXHR, textStatus, errorThrown );
@@ -62,21 +71,18 @@ class DashboardOverview extends React.Component {
 	}
 
 	componentDidMount() {
-		$( this.props.type + "-overview" ).on( "click", "." + this.props.type, function() {
-			window.location.hash = "/" + this.props.type + "/" + $( this ).data( "code" );
-		} );
-
 		this.aggregateRequest( this.props.type, this.props.count );
 	}
 
 	render() {
 		let overview_class = this.props.type + "-overview overview",
-			view_all_url = "/#/" + this.props.type;
+			view_all_url = "/#/" + this.props.type,
+			overview_id = this.props.type + "-results";
 
 		return 	<div className={overview_class}>
 			<h2>{this.props.title}</h2>
 			<a href={view_all_url}>View all</a>
-			<div className="results" />
+			<div id={overview_id} className="results" />
 		</div>
 	}
 }

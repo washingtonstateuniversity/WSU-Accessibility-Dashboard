@@ -1,11 +1,21 @@
 import RecordsList from "../components/recordslist.jsx";
 
-class Detail {
-	setup( grouping, record ) {
-		document.getElementById( "container" ).innerHTML = "<h1>" + grouping + " " + record + "</h1>" +
-			"<div class='result-title'></div><div id='result-details' class='result-details'></div>";
+class Detail extends React.Component {
+	constructor( props ) {
+		super( props );
+	}
 
-		this.fillDetails( grouping, record );
+	componentDidMount() {
+		this.fillDetails( this.props.grouping, this.props.record );
+	}
+
+	render() {
+		return 	<div className="dashboard-wrapper">
+			<a href="/">Dashboard Home</a>
+			<h1>{this.props.grouping} {this.props.record}</h1>
+			<div className="result-title" />
+			<div id="result-details" className="result-details" />
+		</div>
 	}
 
 	fillDetails( type, selection ) {
