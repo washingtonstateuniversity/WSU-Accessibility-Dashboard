@@ -10,7 +10,7 @@ class TypeListItem extends React.Component {
 
 	render() {
 		let hash = this.props.type + "/" + this.props.code;
-		let url = "/#/" + hash;
+		let url = "#/" + hash;
 		let view = "";
 
 		if ( this.props.subtype && this.props.detail ) {
