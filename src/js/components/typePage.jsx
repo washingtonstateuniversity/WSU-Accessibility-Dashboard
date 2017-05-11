@@ -12,7 +12,7 @@ class TypePage extends React.Component {
 			<div className="view-head">
 				<ul className="breadcrumb">
 					<li>
-						<a href="/">Dashboard Home</a>
+						<a href="#/">Dashboard Home</a>
 					</li>
 					<li>
 						{title}

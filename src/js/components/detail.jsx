@@ -12,7 +12,7 @@ class Detail extends React.Component {
 
 	render() {
 		let grouping_title = this.props.grouping.charAt( 0 ).toUpperCase() + this.props.grouping.slice( 1 ),
-			grouping_href = "/#/" + this.props.grouping,
+			grouping_href = "#/" + this.props.grouping,
 			type_one_title = "Selectors",
 			type_one_type = "selector",
 			type_two_title = "Domains",
@@ -51,7 +51,7 @@ class Detail extends React.Component {
 			<div className="view-head">
 				<ul className="breadcrumb">
 					<li>
-						<a href="/">Dashboard Home</a>
+						<a href="#/">Dashboard Home</a>
 					</li>
 					<li>
 						<a href={grouping_href}>{grouping_title}s</a>
