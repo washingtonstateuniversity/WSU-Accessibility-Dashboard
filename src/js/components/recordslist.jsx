@@ -9,7 +9,12 @@ class RecordsList extends React.Component {
 		let records = [];
 
 		for ( let i = 0; i < this.props.records.length; i++ ) {
-			records.push( <Record {...this.props.records[ i ]} /> );
+			let props = this.props.records[ i ];
+
+			// React likes a unique key prop.
+			props.key = "record" + i;
+
+			records.push( <Record {...props} /> );
 		}
 
 		return <div className="results">{records}</div>

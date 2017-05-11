@@ -87,7 +87,6 @@ module.exports = function( grunt ) {
 		watch: {
 			styles: {
 				files: [ "*.html", "src/css/*.css", "src/js/*.js" ],
-				tasks: [ "default" ],
 				option: {
 					livereload: 8000
 				}

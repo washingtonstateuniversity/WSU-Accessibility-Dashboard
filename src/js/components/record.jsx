@@ -22,7 +22,7 @@ class Record extends React.Component {
 				</div>
 				<div className="code-details-context">
 					<strong>Context:</strong>
-					<textarea>{this.props.context}</textarea>
+					<textarea readOnly value={this.props.context}></textarea>
 				</div>
 			</div>
 		</div>
