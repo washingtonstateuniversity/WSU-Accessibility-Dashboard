@@ -41,7 +41,7 @@ class Detail extends React.Component {
 				<li>{this.props.record}</li>
 			);
 		} else {
-			let url = "/#/" + this.props.grouping + "/" + this.props.record;
+			let url = "#/" + this.props.grouping + "/" + this.props.record;
 			breadcrumb_extend = (
 				<span><li><a href={url}>{this.props.record}</a></li><li>{this.props.detail}</li></span>
 			);
