@@ -15,7 +15,6 @@ notifications:
 branches:
   only:
     - travis-deploy
-    - master
 
 before_script:
   - node --version
@@ -34,3 +33,7 @@ deploy:
   on:
     repo: washingtonstateuniversity/WSU-A11y-Dashboard
     branch: travis-deploy
+  skip_cleanup: true
+  region: us-west-2
+  detect_encoding: true
+  default_text_charset: 'utf-8'
