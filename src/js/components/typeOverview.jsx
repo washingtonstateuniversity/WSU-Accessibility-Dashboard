@@ -85,7 +85,7 @@ class TypeOverview extends React.Component {
 
 	render() {
 		let overview_class = this.props.type + "-overview overview",
-			view_all_url = "/#/" + this.props.type,
+			view_all_url = "#/" + this.props.type,
 			overview_id = this.props.type + "-results",
 			all_text = "View all " + this.props.type.charAt( 0 ).toUpperCase() + this.props.type.slice( 1 ) + "s";
 
