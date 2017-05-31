@@ -31,7 +31,8 @@ deploy:
   access_key_id: AKIAJCZMRA44FAVTGI4A
   secret_access_key:
     secure: OjUqvwEqoWwX5Sjk2MhiF9OVa5wHQB4TRvssRXX3i+HITxnEQ+DTEHrlFKQpXGrK+0yHmSMf50A4UteOaXLsUjL2p9gfzB//i+6WmPZ/L6qrfJo93xLkevqP1rfB8KVBeBeme3cucTUP4PhXXHfyHEGjwIOic0cYuwruQjXN4VVDUUhQ45sgc073BW84/jK02YIeLse7B67awWDxrDp8CCW/TLS5JVOCtf9tqGXq5MXyhV5QQ161XBGb8GA45W0PUki/tUXm2WRHVpQB27s83q8vrBMGBp2zJqGzF154WLsqhf07j5IR2vctgf2c3nSMDndxJHF31Uqzz4M8PSAjAFZdAplsahyaUtgPX4iOa5305BCr+rn2DGxTCzxE+4vPTSlGRqCjiDa7ibgjsf6qyaZnPR3xRB/mhC2mrNm6aPu3TDl6azRKe9WQ6Vc90/VvdISCqy+BRD93hA6TfV5k66UNnVfwFa4OGX1u0DMnIQHIoWcFPXSN/ydyfIg4T7kBwHMqnZupVBsrCgN7EGkKzcYUrny1K8Rl1zTZELhVzg45VfV0grw8yMQZAc9cPPjbkTie9UxoAXSOIjaCXCFaItQAA+XsAMzlUn9NT8zTZfbCM9GtNhQCd640ySqkvRpLfgnYdHeF487x3GztmtcFEJy+lKVNW5rAGkY+TgovAiw=
-  bucket: a11y-dashboard
+  bucket: dashboard.wsu.edu
+  upload-dir: accessibility
   local_dir: build
   acl: public_read
   on:
