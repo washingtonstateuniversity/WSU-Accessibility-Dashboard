@@ -5,6 +5,12 @@ class DomainList extends React.Component {
         super( props );
     }
 
+    componentDidMount() {
+        window.requestAnimationFrame( function() {
+            Sortable.init();
+        });
+    }
+
     render() {
         let domains = [];
 
@@ -17,10 +23,14 @@ class DomainList extends React.Component {
             domains.push( <Domain {...props} /> );
         }
 
-        return <table className="domains">
-            <tr><th>Domain</th><th>Total URLs</th><th>Scanned URLs</th><th>Accessibility Errors</th><th>Error Rate</th></tr>
-            {domains}
-            </table>
+        return <table className="domains sortable-theme-light" data-sortable>
+            <thead>
+                <tr><th>Domain</th><th>Total URLs</th><th>Scanned URLs</th><th>Accessibility Errors</th><th>Error Rate</th></tr>
+            </thead>
+            <tbody>
+                {domains}
+            </tbody>
+        </table>
     }
 }
 
