@@ -43,7 +43,7 @@ module.exports = function( grunt ) {
 
 		jscs: {
 			scripts: {
-				src: [ "Gruntfile.js", "src/js/*.js" ],
+				src: [ "Gruntfile.js", "src/js/*.js", "bin/*.js" ],
 				options: {
 					preset: "jquery",
 					requireCamelCaseOrUpperCaseIdentifiers: false, // We rely on name_name too much to change them all.
@@ -79,6 +79,8 @@ module.exports = function( grunt ) {
 				files: [
 					{ expand: true, src: [ "css/*" ], dest: "build/" },
 					{ expand: true, src: [ "js/*" ], dest: "build/" },
+					{ expand: true, src: [ "bin/*.js" ], dest: "build/" },
+					{ expand: true, src: [ "data/*.md" ], dest: "build/" },
 					{ expand: true, src: [ "index.html" ], dest: "build/" }
 				]
 			}
