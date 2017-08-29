@@ -1,5 +1,8 @@
 node_modules
+package-lock.json
 /css
 /js
 /build
 dashboard.tar.gz
+bin/.env
+data/*.json
