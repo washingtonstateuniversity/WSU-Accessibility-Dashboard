@@ -17,7 +17,10 @@ class DomainList extends React.Component {
             domains.push( <Domain {...props} /> );
         }
 
-        return <table className="domains">{domains}</table>
+        return <table className="domains">
+            <tr><th>Domain</th><th>Total URLs</th><th>Scanned URLs</th><th>Accessibility Errors</th><th>Error Rate</th></tr>
+            {domains}
+            </table>
     }
 }
 
