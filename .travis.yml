@@ -36,7 +36,7 @@ deploy:
   local_dir: build
   acl: public_read
   on:
-    repo: washingtonstateuniversity/WSU-A11y-Dashboard
+    repo: washingtonstateuniversity/WSU-Accessibility-Dashboard
     tags: true
   skip_cleanup: true
   region: us-west-2
