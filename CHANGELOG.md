@@ -1,5 +1,9 @@
 # WSU Accessibility Dashboard Changelog
 
+## 0.2.1 (August 29, 2017)
+
+* Fix repository name in Travis deploy configuration.
+
 ## 0.2.0 (August 29, 2017)
 
 * Display all domains in a sortable table on home page.

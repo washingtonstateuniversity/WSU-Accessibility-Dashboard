@@ -1,9 +1,9 @@
 {
-  "name": "wsu-a11y-dashboard",
-  "version": "0.2.0",
+  "name": "wsu-accessibility-dashboard",
+  "version": "0.2.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/washingtonstateuniversity/wsu-a11y-dashboard"
+    "url": "https://github.com/washingtonstateuniversity/wsu-accessibility-dashboard"
   },
   "devDependencies": {
     "autoprefixer": "^7.0.1",
