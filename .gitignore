@@ -2,7 +2,7 @@ node_modules
 package-lock.json
 /css
 /js
-/build
-dashboard.tar.gz
+/build-package
+dashboard.tar
 bin/.env
 data/*.json
