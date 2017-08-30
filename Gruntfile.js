@@ -74,6 +74,14 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		copy: {
+			main: {
+				files: [
+					{ expand: true, src: [ "upstream/*.js" ], dest: "js/" }
+				]
+			}
+		},
+
 		watch: {
 			styles: {
 				files: [ "*.html", "src/css/*.css", "src/js/*.js" ],
@@ -97,6 +105,7 @@ module.exports = function( grunt ) {
 
 	grunt.loadNpmTasks( "grunt-postcss" );
 	grunt.loadNpmTasks( "grunt-contrib-concat" );
+	grunt.loadNpmTasks( "grunt-contrib-copy" );
 	grunt.loadNpmTasks( "grunt-contrib-clean" );
 	grunt.loadNpmTasks( "grunt-contrib-watch" );
 	grunt.loadNpmTasks( "grunt-contrib-connect" );
@@ -106,6 +115,6 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( "grunt-stylelint" );
 
 	// Default task(s).
-	grunt.registerTask( "default", [ "jscs", "jshint", "stylelint", "concat", "postcss", "uglify", "clean" ] );
+	grunt.registerTask( "default", [ "jscs", "jshint", "stylelint", "concat", "postcss", "uglify", "clean", "copy" ] );
 	grunt.registerTask( "serve", [ "connect", "watch" ] );
 };
