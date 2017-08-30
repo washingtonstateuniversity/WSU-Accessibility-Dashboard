@@ -103,11 +103,6 @@ th {
 	margin: 2em auto 0;
 }
 
-.aggregate-container {
-	display: flex;
-	flex-wrap: wrap;
-}
-
 .view-head {
 	width: 100%;
 }
@@ -139,7 +134,9 @@ ul.breadcrumb {
 }
 
 .detail-wrapper .overview {
-	width: calc(50% - 4em);
+	width: calc(100vw - 2em);
+	padding: 0;
+	margin-left: 2em;
 }
 
 .detail-container {
