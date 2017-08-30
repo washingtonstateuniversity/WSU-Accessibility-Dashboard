@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "elasticsearch": "^13.3.1"
+  }
+}
