@@ -22,7 +22,14 @@ class TypeList extends React.Component {
 			items.push( <TypeListItem {...props} /> );
 		}
 
-		return <ul className="results">{items}</ul>
+		return <table>
+			<thead>
+				<tr><th>Detail</th><th>Success Criterion</th><th>Technique(s)</th></tr>
+			</thead>
+			<tbody>
+			{items}
+			</tbody>
+		</table>
 	}
 }
 
