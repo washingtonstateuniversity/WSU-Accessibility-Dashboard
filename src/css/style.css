@@ -107,6 +107,11 @@ th {
 	width: 100%;
 }
 
+.aggregate-container table {
+	width: 100%;
+	max-width: 800px;
+}
+
 ul.breadcrumb {
 	margin-top: 1.5em;
 	padding-left: 2rem;
@@ -149,13 +154,7 @@ ul.breadcrumb {
 }
 
 .result {
-	display: flex;
-	flex-direction: row;
 	margin-bottom: .5em;
-}
-
-.count {
-	flex-basis: 10%;
 }
 
 .selector,
@@ -165,7 +164,6 @@ ul.breadcrumb {
 	color: #0366d6;
 	text-decoration: underline;
 	cursor: pointer;
-	margin-left: 1em;
 }
 
 .result .technique {

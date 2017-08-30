@@ -58,8 +58,9 @@ class AggregateList extends React.Component {
 					};
 
 					if ( "code" === type ) {
-						let code_details = get_wcag_url( code_selector );
-						item.name = code_details.text;
+						let code_details = HTMLCS_WCAG2AAA.getMsgInfo( code_selector );
+						item.criterion = { __html:code_details[0][1] };
+						item.techniques = { __html: code_details[1][1] };
 					}
 
 					items.push( item );
