@@ -1,4 +1,4 @@
-import TypeOverview from "../components/typeOverview.jsx";
+import AggregateList from "../components/aggregateList.jsx";
 
 class DomainDetail extends React.Component {
 	constructor( props ) {
@@ -6,19 +6,15 @@ class DomainDetail extends React.Component {
 	}
 
 	render() {
-		let type_one_title = "Selectors",
-			type_one_type = "selector",
-			type_two_title = "Codes",
-			type_two_type = "code";
-
 		let aggregates;
 		let breadcrumb_extend;
 
 		if ( ! this.props.subtype && ! this.props.detail ) {
 			aggregates = (
 				<div className="aggregate-container">
-					<TypeOverview title={type_one_title} type={type_one_type} subtype="domain" detail={this.props.record} count="10" />
-					<TypeOverview title={type_two_title} type={type_two_type} subtype="domain" detail={this.props.record} count="10" />
+					<AggregateList title="Errors" selector="error-code" type="code" term="typeCode" match="1" subtype="domain" detail={this.props.record} />
+					<AggregateList title="Warnings" selector="warning-code" type="code" term="typeCode" match="2" subtype="domain" detail={this.props.record} />
+					<AggregateList title="Notices" selector="notice-code" type="code" term="typeCode" match="3" subtype="domain" detail={this.props.record} />
 				</div>
 			);
 
