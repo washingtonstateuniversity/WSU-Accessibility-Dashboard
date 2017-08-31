@@ -21,6 +21,7 @@ class Detail extends React.Component {
 		if ( "domain" === this.props.grouping ) {
 			type_two_title = "Codes";
 			type_two_type = "code";
+			grouping_href = "#/";
 		} else if ( "selector" === this.props.grouping ) {
 			type_one_title = "Codes";
 			type_one_type = "code";
