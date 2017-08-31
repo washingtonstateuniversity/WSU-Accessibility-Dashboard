@@ -111,6 +111,12 @@ th {
 	max-width: 800px;
 }
 
+.result-details table {
+	margin-left: 2em;
+	max-width: 1400px;
+	width: calc(100% - 4em);
+}
+
 ul.breadcrumb {
 	margin-top: 1.5em;
 	padding-left: 2rem;
