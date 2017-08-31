@@ -20,7 +20,7 @@ import ErrorPage from "./components/errorPage.jsx";
 			return;
 		}
 
-		let valid_type = ( "domain" === hash[ 1 ] || "code" === hash[ 1 ] || "selector" === hash[ 1 ] );
+		let valid_type = ( "code" === hash[ 1 ] );
 
 		if ( 2 === hash.length && true === valid_type ) {
 			ReactDom.render( <TypePage type={hash[ 1 ] }/>, document.getElementById( "container" ) );

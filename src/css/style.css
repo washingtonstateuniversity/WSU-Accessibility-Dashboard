@@ -57,7 +57,6 @@ main.page-wrapper {
 }
 
 .overview {
-	width: calc(33% - 4em);
 	padding: 0 2em;
 }
 
