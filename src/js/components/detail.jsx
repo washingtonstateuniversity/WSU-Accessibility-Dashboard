@@ -79,7 +79,6 @@ class Detail extends React.Component {
 			selection += " > " + detail;
 		}
 
-		$( ".result-title" ).html( "<h2>Results for " + selection + "</h2>" );
 		$( ".result-details" ).html( "" );
 
 		$.ajax( {
