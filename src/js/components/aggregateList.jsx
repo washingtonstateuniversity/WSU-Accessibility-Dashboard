@@ -1,7 +1,5 @@
 import TypeList from "./typeList.jsx";
 
-let get_wcag_url = require( "../lib/wcagurl.js" );
-
 class AggregateList extends React.Component {
 	constructor( props ) {
 		super( props );
@@ -29,6 +27,12 @@ class AggregateList extends React.Component {
 		let t = {};
 		t[ term ] = match;
 		body.query.bool.must.push( { term: t } );
+
+		// There are so many selectors and there isn't as much value in seeing
+		// all of them in a list.
+		if ( "selector" === type ) {
+			body.aggs.top_codes.terms.size = 50;
+		}
 
 		if ( subtype && detail ) {
 			let term = {};
@@ -67,9 +71,9 @@ class AggregateList extends React.Component {
 				}
 
 				if ( subtype && detail ) {
-					ReactDOM.render( <TypeList items={items} subtype={subtype} detail={detail} />, document.getElementById( selector + "-results" ) );
+					ReactDOM.render( <TypeList items={items} type={type} subtype={subtype} detail={detail} />, document.getElementById( selector + "-results" ) );
 				} else {
-					ReactDOM.render( <TypeList items={items} />, document.getElementById( selector + "-results" ) );
+					ReactDOM.render( <TypeList items={items} type={type} />, document.getElementById( selector + "-results" ) );
 				}
 
 			},

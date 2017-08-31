@@ -17,7 +17,16 @@ class RecordsList extends React.Component {
 			records.push( <Record {...props} /> );
 		}
 
-		return <div className="results">{records}</div>
+		return <div className="results">
+			<table data-sortable>
+				<thead>
+				<tr><th>Domain</th><th>URL Path (truncated)</th><th>Selector</th></tr>
+				</thead>
+				<tbody>
+				{records}
+				</tbody>
+			</table>
+		</div>
 	}
 }
 

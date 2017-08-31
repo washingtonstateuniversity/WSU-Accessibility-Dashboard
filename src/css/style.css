@@ -57,7 +57,6 @@ main.page-wrapper {
 }
 
 .overview {
-	width: calc(33% - 4em);
 	padding: 0 2em;
 }
 
@@ -110,6 +109,12 @@ th {
 .aggregate-container table {
 	width: 100%;
 	max-width: 800px;
+}
+
+.result-details table {
+	margin-left: 2em;
+	max-width: 1400px;
+	width: calc(100% - 4em);
 }
 
 ul.breadcrumb {

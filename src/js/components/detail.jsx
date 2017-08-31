@@ -1,5 +1,4 @@
 import RecordsList from "../components/recordslist.jsx";
-import TypeOverview from "../components/typeOverview.jsx";
 
 class Detail extends React.Component {
 	constructor( props ) {
@@ -12,31 +11,15 @@ class Detail extends React.Component {
 
 	render() {
 		let grouping_title = this.props.grouping.charAt( 0 ).toUpperCase() + this.props.grouping.slice( 1 ),
-			grouping_href = "#/" + this.props.grouping,
-			type_one_title = "Selectors",
-			type_one_type = "selector",
-			type_two_title = "Domains",
-			type_two_type = "domain";
+			grouping_href = "#/" + this.props.grouping;
 
 		if ( "domain" === this.props.grouping ) {
-			type_two_title = "Codes";
-			type_two_type = "code";
-		} else if ( "selector" === this.props.grouping ) {
-			type_one_title = "Codes";
-			type_one_type = "code";
+			grouping_href = "#/";
 		}
 
-		let aggregates;
 		let breadcrumb_extend;
 
 		if ( ! this.props.subtype && ! this.props.detail ) {
-			aggregates = (
-				<div className="aggregate-container">
-					<TypeOverview title={type_one_title} type={type_one_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
-					<TypeOverview title={type_two_title} type={type_two_type} subtype={this.props.grouping} detail={this.props.record} count="10" />
-				</div>
-			);
-
 			breadcrumb_extend = (
 				<li>{this.props.record}</li>
 			);
@@ -60,7 +43,6 @@ class Detail extends React.Component {
 				</ul>
 				<h1>{grouping_title}: {this.props.record}</h1>
 			</div>
-			{aggregates}
 			<div className="detail-container">
 				<div className="result-title" />
 				<div id="result-details" className="result-details" />
@@ -78,12 +60,10 @@ class Detail extends React.Component {
 		}
 
 		let body = {
-			"size": 50,
+			"size": 250,
 			"query": {
 				"bool": {
-					"must": [
-						{ "term": { "typeCode": 1 } }
-					]
+					"must": []
 				}
 			}
 		};
@@ -99,7 +79,6 @@ class Detail extends React.Component {
 			selection += " > " + detail;
 		}
 
-		$( ".result-title" ).html( "<h2>Results for " + selection + "</h2>" );
 		$( ".result-details" ).html( "" );
 
 		$.ajax( {

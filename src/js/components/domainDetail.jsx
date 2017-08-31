@@ -34,9 +34,7 @@ class DomainDetail extends React.Component {
 					<li>
 						<a href="#/">Dashboard Home</a>
 					</li>
-					<li>
-						<a href="#/domain">Domains</a>
-					</li>
+					<li>Domains</li>
 					{breadcrumb_extend}
 				</ul>
 				<h1>Domain: {this.props.record}</h1>

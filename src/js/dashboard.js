@@ -20,9 +20,11 @@ import ErrorPage from "./components/errorPage.jsx";
 			return;
 		}
 
-		let valid_type = ( "domain" === hash[ 1 ] || "code" === hash[ 1 ] || "selector" === hash[ 1 ] );
+		let valid_type = ( "code" === hash[ 1 ] || "selector" === hash[ 1 ] );
 
 		if ( 2 === hash.length && true === valid_type ) {
+
+			// Render #/code and #/selector overviews
 			ReactDom.render( <TypePage type={hash[ 1 ] }/>, document.getElementById( "container" ) );
 		} else if ( 3 === hash.length && hash[ 1 ] === "domain" ) {
 			ReactDom.render( <DomainDetail record={hash[ 2 ]} />, document.getElementById( "container" ) );
