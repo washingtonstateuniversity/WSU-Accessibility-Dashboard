@@ -20,7 +20,7 @@ class RecordsList extends React.Component {
 		return <div className="results">
 			<table data-sortable>
 				<thead>
-				<tr><th>Domain</th><th>URL Path (truncated)</th><th>Selector</th><th>Level</th></tr>
+				<tr><th>Domain</th><th>URL Path (truncated)</th><th>Selector</th></tr>
 				</thead>
 				<tbody>
 				{records}

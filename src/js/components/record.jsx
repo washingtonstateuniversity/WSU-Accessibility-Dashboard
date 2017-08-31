@@ -16,7 +16,6 @@ class Record extends React.Component {
 			<td>{this.props.domain}</td>
 			<td><a href={this.props.url}>{url.path}</a></td>
 			<td>{this.props.selector}</td>
-			<td>{this.props.type}</td>
 		</tr>
 	}
 }
