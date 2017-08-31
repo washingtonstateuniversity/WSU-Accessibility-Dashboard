@@ -24,7 +24,7 @@ class TypeList extends React.Component {
 
 		return <table>
 			<thead>
-				<tr><th>Detail</th><th>Success Criterion</th><th>Technique(s)</th></tr>
+				<tr><th>Count</th><th>Success Criterion</th><th>Technique(s)</th></tr>
 			</thead>
 			<tbody>
 			{items}
