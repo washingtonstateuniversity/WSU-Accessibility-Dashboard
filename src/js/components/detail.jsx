@@ -60,12 +60,10 @@ class Detail extends React.Component {
 		}
 
 		let body = {
-			"size": 50,
+			"size": 250,
 			"query": {
 				"bool": {
-					"must": [
-						{ "term": { "typeCode": 1 } }
-					]
+					"must": []
 				}
 			}
 		};
