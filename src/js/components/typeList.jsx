@@ -19,13 +19,18 @@ class TypeList extends React.Component {
 				props.detail = this.props.detail;
 			}
 
-			items.push( <TypeListItem {...props} /> );
+			items.push( <TypeListItem {...props} type={this.props.type} /> );
 		}
 
+		let table_head = "";
+
+		if ( "code" === this.props.type ) {
+			table_head = "<tr><th>Count</th><th>Success Criterion</th><th>Technique(s)</th></tr>";
+		} else if ( "selector" === this.props.type ) {
+			table_head = "<tr><th>Count</th><th>Selector</th></tr>";
+		}
 		return <table>
-			<thead>
-				<tr><th>Count</th><th>Success Criterion</th><th>Technique(s)</th></tr>
-			</thead>
+			<thead dangerouslySetInnerHTML={ { __html: table_head } } />
 			<tbody>
 			{items}
 			</tbody>

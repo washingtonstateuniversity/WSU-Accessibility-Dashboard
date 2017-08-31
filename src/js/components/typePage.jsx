@@ -13,9 +13,9 @@ class TypePage extends React.Component {
         if ( ! this.props.subtype && ! this.props.detail ) {
             aggregates = (
 				<div className="aggregate-container">
-					<AggregateList title="Errors" selector="error-code" type="code" term="typeCode" match="1" subtype="code" detail={this.props.record} />
-					<AggregateList title="Warnings" selector="warning-code" type="code" term="typeCode" match="2" subtype="code" detail={this.props.record} />
-					<AggregateList title="Notices" selector="notice-code" type="code" term="typeCode" match="3" subtype="code" detail={this.props.record} />
+					<AggregateList title="Errors" selector="error-code" type={this.props.type} term="typeCode" match="1" subtype="code" detail={this.props.record} />
+					<AggregateList title="Warnings" selector="warning-code" type={this.props.type} term="typeCode" match="2" subtype="code" detail={this.props.record} />
+					<AggregateList title="Notices" selector="notice-code" type={this.props.type} term="typeCode" match="3" subtype="code" detail={this.props.record} />
 				</div>
             );
         }

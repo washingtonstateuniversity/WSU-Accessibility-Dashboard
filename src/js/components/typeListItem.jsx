@@ -17,16 +17,31 @@ class TypeListItem extends React.Component {
 			view = "/" + this.props.subtype + "/" + this.props.detail;
 		}
 
-		return 	<tr className="result">
-			<td><a className={this.props.type}
-			   onClick={this.handleClick}
-			   data-code={this.props.selector}
-			   data-view={view}
-			   data-hash={hash}
-				   href={url} >{this.props.count}</a></td>
-			<td><span dangerouslySetInnerHTML={this.props.criterion} /></td>
-			<td><span dangerouslySetInnerHTML={this.props.techniques} /></td>
-		</tr>
+		if ( "code" === this.props.type ) {
+            return 	<tr className="result">
+				<td><a className={this.props.type}
+					   onClick={this.handleClick}
+					   data-code={this.props.selector}
+					   data-view={view}
+					   data-hash={hash}
+					   href={url} >{this.props.count}</a></td>
+				<td><span dangerouslySetInnerHTML={this.props.criterion} /></td>
+				<td><span dangerouslySetInnerHTML={this.props.techniques} /></td>
+			</tr>
+		} else {
+            return 	<tr className="result">
+				<td><a className={this.props.type}
+					   onClick={this.handleClick}
+					   data-code={this.props.selector}
+					   data-view={view}
+					   data-hash={hash}
+					   href={url} >{this.props.count}</a></td>
+				<td>{this.props.name}</td>
+				<td>{this.props.selector}</td>
+			</tr>
+		}
+
+
 	}
 }
 
