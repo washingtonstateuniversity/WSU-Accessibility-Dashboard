@@ -13,6 +13,7 @@ class DomainDetail extends React.Component {
 			aggregates = (
 				<div className="aggregate-container">
 					<AggregateList title="Errors" selector="error-code" type="code" term="typeCode" match="1" subtype="domain" detail={this.props.record} />
+					<AggregateList title="Selectors" selector="selector-code" type="selector" term="typeCode" match="1" subtype="domain" detail={this.props.record} />
 				</div>
 			);
 

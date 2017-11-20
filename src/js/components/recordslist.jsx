@@ -14,19 +14,37 @@ class RecordsList extends React.Component {
 			// React likes a unique key prop.
 			props.key = "record" + i;
 
+			if ( this.props.subtype && this.props.detail ) {
+				props.subtype = this.props.subtype;
+				props.detail = this.props.detail;
+			}
+
 			records.push( <Record {...props} /> );
 		}
 
-		return <div className="results">
-			<table data-sortable>
-				<thead>
-				<tr><th>Domain</th><th>URL Path (truncated)</th><th>Selector</th></tr>
-				</thead>
-				<tbody>
-				{records}
-				</tbody>
-			</table>
-		</div>
+		if ( ! this.props.subtype || "code" === this.props.subtype ) {
+            return <div className="results">
+				<table data-sortable>
+					<thead>
+					<tr><th>Domain</th><th>URL Path (truncated)</th><th>Selector</th></tr>
+					</thead>
+					<tbody>
+                    {records}
+					</tbody>
+				</table>
+			</div>
+		} else if ( "selector" === this.props.subtype ) {
+            return <div className="results">
+				<table data-sortable>
+					<thead>
+					<tr><th>Domain</th><th>URL Path (truncated)</th><th>Criterion</th><th>Technique</th></tr>
+					</thead>
+					<tbody>
+                    {records}
+					</tbody>
+				</table>
+			</div>
+		}
 	}
 }
 
