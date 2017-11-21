@@ -8,7 +8,7 @@ body {
 	font-family: "Open Sans", sans-serif;
 	color: #333;
 	font-size: 16px;
-	background: #fff;
+	background: #f8f8f8;
 	margin: 0;
 }
 
@@ -76,17 +76,18 @@ main.page-wrapper {
 	hyphens: auto;
 }
 
+thead tr:nth-child(odd),
 tr:nth-child(even) {
-	background: #f5f5f5;
+	background: #e5e5e5;
 }
 
 tr:nth-child(odd) {
-	background: #fff;
+	background: #f2f2f2;
 }
 
 th,
 td {
-	padding: .25em 0 .1em;
+	padding: .3em 0 .3em .5em;
 }
 
 th {
@@ -120,6 +121,8 @@ th {
 ul.breadcrumb {
 	margin-top: 1.5em;
 	padding-left: 2rem;
+	font-size: .75em;
+	color: #404040;
 }
 
 .breadcrumb li {
@@ -141,6 +144,7 @@ ul.breadcrumb {
 .view-head h1 {
 	margin-top: 2rem;
 	padding-left: 2rem;
+	color: #404040;
 }
 
 .detail-wrapper .overview {
@@ -162,13 +166,13 @@ ul.breadcrumb {
 	margin-bottom: .5em;
 }
 
-.selector,
-.domain,
-.url,
-.code {
+a {
 	color: #0366d6;
-	text-decoration: underline;
-	cursor: pointer;
+}
+
+a:focus,
+a:hover {
+	color: #3585de;
 }
 
 .result .technique {
