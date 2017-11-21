@@ -15,6 +15,7 @@ import ErrorPage from "./components/errorPage.jsx";
 
 		document.getElementById( "container" ).innerHTML = "";
 
+		// Display the home page.
 		if ( 1 === hash.length ) {
 			ReactDOM.render( <HomePage />, document.getElementById( "container" ) );
 			return;
@@ -24,13 +25,19 @@ import ErrorPage from "./components/errorPage.jsx";
 
 		if ( 2 === hash.length && true === valid_type ) {
 
-			// Render #/code and #/selector overviews
+			// Render overview pages at #/code and #/selector
 			ReactDom.render( <TypePage type={hash[ 1 ] }/>, document.getElementById( "container" ) );
 		} else if ( 3 === hash.length && hash[ 1 ] === "domain" ) {
+
+			// Render a page showing aggregate errors and selectors for an individual domain.
+			// #/domain/domain.wsu.edu
 			ReactDom.render( <DomainDetail record={hash[ 2 ]} />, document.getElementById( "container" ) );
 		} else if ( 3 === hash.length ) {
 			ReactDom.render( <Detail grouping={hash[ 1 ]} record={hash[ 2 ]} />, document.getElementById( "container" ) );
 		} else if ( 5 === hash.length ) {
+
+			// Render a page showing specific domain and code/selector detail.
+			// #/domain/domain.wsu.edu/code/..... or #/domain/domain.wsu.edu/selector/...
 			ReactDom.render( <Detail grouping={hash[ 1 ]} record={hash[ 2 ]} subtype={hash[ 3 ]} detail={hash[ 4 ]} />, document.getElementById( "container" ) );
 		} else {
 			ReactDom.render( <ErrorPage />, document.getElementById( "container" ) );
