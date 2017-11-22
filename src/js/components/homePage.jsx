@@ -1,4 +1,5 @@
 import DomainOverview from "./domainOverview.jsx";
+import URLSearch from "./urlSearch.jsx";
 
 class HomePage extends React.Component {
 	constructor( props ) {
@@ -7,6 +8,8 @@ class HomePage extends React.Component {
 
 	render() {
 		return 	<div className="dashboard-wrapper">
+			<URLSearch />
+			<div id="search-results" />
 			<DomainOverview />
 		</div>
 	}
