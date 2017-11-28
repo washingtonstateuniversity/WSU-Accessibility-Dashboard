@@ -40,6 +40,16 @@ h2 {
 	grid-area: header;
 }
 
+.wsu-mark {
+	position: absolute;
+	top: 3.5em;
+	left: calc((100% - 800px) / 2);
+}
+
+#header-shield {
+	height: 61px;
+}
+
 #container {
 	grid-area: container;
 }
