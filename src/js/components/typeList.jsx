@@ -5,6 +5,12 @@ class TypeList extends React.Component {
 		super( props );
 	}
 
+    componentDidMount() {
+        window.requestAnimationFrame( function() {
+            Sortable.init();
+        });
+    }
+
 	render() {
 		let items = [];
 
@@ -29,7 +35,7 @@ class TypeList extends React.Component {
 		} else if ( "selector" === this.props.type ) {
 			table_head = "<tr><th>Count</th><th>Selector</th></tr>";
 		}
-		return <table>
+		return <table className="sortable-theme-light" data-sortable>
 			<thead dangerouslySetInnerHTML={ { __html: table_head } } />
 			<tbody>
 			{items}

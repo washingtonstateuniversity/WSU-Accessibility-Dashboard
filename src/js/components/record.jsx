@@ -12,11 +12,24 @@ class Record extends React.Component {
             url.path = url.path.substring( 0, 35 ) + "...";
 		}
 
-		return 	<tr>
-			<td>{this.props.domain}</td>
-			<td><a href={this.props.url}>{url.path}</a></td>
-			<td>{this.props.selector}</td>
-		</tr>
+		if ( "code" === this.props.subtype ) {
+            return 	<tr>
+				<td>{this.props.domain}</td>
+				<td><a href={this.props.url}>{url.path}</a></td>
+				<td>{this.props.selector}</td>
+			</tr>
+		} else if ( "selector" === this.props.subtype ) {
+			let code_details = HTMLCS_WCAG2AAA.getMsgInfo( this.props.code );
+			let criterion = { __html:code_details[0][1] };
+			let techniques = { __html: code_details[1][1] };
+
+			return 	<tr>
+				<td>{this.props.domain}</td>
+				<td><a href={this.props.url}>{url.path}</a></td>
+				<td><span dangerouslySetInnerHTML={criterion} /></td>
+				<td><span dangerouslySetInnerHTML={techniques} /></td>
+			</tr>
+        }
 	}
 }
 

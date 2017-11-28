@@ -15,6 +15,7 @@ class TypeListItem extends React.Component {
 
 		if ( this.props.subtype && this.props.detail ) {
 			view = "/" + this.props.subtype + "/" + this.props.detail;
+			url = "#" + view + "/" + hash;
 		}
 
 		if ( "code" === this.props.type ) {

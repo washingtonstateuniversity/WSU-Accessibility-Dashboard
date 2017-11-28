@@ -94,7 +94,7 @@ class Detail extends React.Component {
 					results.push( response.hits.hits[ i ]._source );
 				}
 
-				ReactDOM.render( <RecordsList records={results} />, document.getElementById( "result-details" ) );
+				ReactDOM.render( <RecordsList records={results} subtype={subtype} detail={detail} />, document.getElementById( "result-details" ) );
 			},
 			error: function( jqXHR, textStatus, errorThrown ) {
 				console.log( jqXHR, textStatus, errorThrown );
